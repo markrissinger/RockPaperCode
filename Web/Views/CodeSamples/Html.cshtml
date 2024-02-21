@@ -1,18 +1,46 @@
 ﻿@{
     ViewData["Title"] = "HTML Code Samples";
 }
+@section Scripts
+{
+    <script>
+        // HTML Code Sample JS Code
+        $(document).ready(function () {
+            $("#htmlSampleDropdown").on("change",
+                function (e) {
+                    $.get(@{Url.ActionLink()}url, function (data) {
+                        $detailDiv.replaceWith(data);
+                    });
+                });
+        });
+    </script>
+}
 
-<div class="text-center">
+<div class="row text-center">
     <h1 class="display-4">HTML Code Samples!</h1>
-    <br/><br/>
-    <div class="row">
-        <div class="col">
-            <h1>Purpose</h1>
-            <p>This <strong>amazing</strong> web application is a sandbox for testing various <code>code</code> scenarios!</p>
-        </div>
-        <div class="col">
-            <h1>Feedback</h1>
-            <p>All feedback should be directed towards the <a href="https://github.com/markrissinger/RockPaperCode">GIT repository</a>.</p>
-        </div>
-    </div>
+</div>
+
+<!--Code Sample Selector-->
+<div class="row">
+    <div class="col-3">
+        <select id="htmlSampleDropdown" class="form-select" aria-label="Default select example">
+            <option selected></option>
+            <option value="_PartialHtmlLists">Lists</option>
+            <option value="_PartialHtmlTables">Tables</option>
+            <option value="_PartialHtmlForms">Forms</option>
+        </select>
+    </div>    
+</div>
+
+<br />
+<hr />
+<br />
+
+<!--Partial Render Window-->
+<div class="container-fluid" id="htmlCodeExamplePartialRender">
+    <br /> 
+    <br /> 
+    <br /> 
+    <br /> 
+    <br />
 </div>
