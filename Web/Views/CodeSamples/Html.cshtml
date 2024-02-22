@@ -8,26 +8,31 @@
         $(document).ready(function () {
             $("#htmlSampleDropdown").on("change",
                 function (e) {
-                    $.get(@{Url.ActionLink()}url, function (data) {
-                        $detailDiv.replaceWith(data);
-                    });
+                    var codeSample = $("#htmlSampleDropdown").val();
+                    $("#htmlCodeExamplePartialRender").load("/CodeSamples/HtmlCodeSample", { codeSample: codeSample });
                 });
         });
     </script>
 }
 
 <div class="row text-center">
-    <h1 class="display-4">HTML Code Samples!</h1>
+    <h1>HTML Code Samples</h1>
 </div>
+
+<br />
 
 <!--Code Sample Selector-->
 <div class="row">
     <div class="col-3">
         <select id="htmlSampleDropdown" class="form-select" aria-label="Default select example">
-            <option selected></option>
-            <option value="_PartialHtmlLists">Lists</option>
-            <option value="_PartialHtmlTables">Tables</option>
+            <option value="_PartialHtmlIndex" selected></option>
+            <option value="_PartialHtmlAccordian">Accordian</option>
+            <option value="_PartialHtmlCards">Cards</option>
+            <option value="_PartialHtmlCarousel">Carousel</option>
             <option value="_PartialHtmlForms">Forms</option>
+            <option value="_PartialHtmlLists">Lists</option>
+            <option value="_PartialHtmlModals">Modals</option>
+            <option value="_PartialHtmlTables">Tables</option>
         </select>
     </div>    
 </div>

@@ -19,6 +19,11 @@ namespace RockPaperCode.Controllers
             return View();
         }
 
+        public IActionResult HtmlCodeSample(string codeSample) 
+        { 
+            return PartialView(codeSample); 
+        }
+
         public IActionResult JavaScript()
         {
             return View();
