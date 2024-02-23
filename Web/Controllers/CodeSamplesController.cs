@@ -14,6 +14,7 @@ namespace RockPaperCode.Controllers
             _logger = logger;
         }
 
+        #region HTML
         public IActionResult Html()
         {
             return View();
@@ -23,21 +24,30 @@ namespace RockPaperCode.Controllers
         { 
             return PartialView(codeSample); 
         }
+        #endregion
 
+        #region JavaScript
         public IActionResult JavaScript()
         {
             return View();
         }
 
+        public IActionResult JavaScriptCodeSample(string codeSample)
+        {
+            return PartialView(codeSample);
+        }
+        #endregion
+
+        #region C#
         public IActionResult CSharp()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult CSharpCodeSample(string codeSample)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return PartialView(codeSample);
         }
+        #endregion
     }
 }
