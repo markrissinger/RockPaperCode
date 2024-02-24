@@ -4,9 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RockPaperCode - @ViewData["Title"]</title>
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/RockPaperCode.styles.css" asp-append-version="true" />
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </head>
 <body>
     <header>
@@ -36,6 +43,26 @@
                             <a class="nav-link" asp-area="" asp-controller="AboutMe" asp-action="Index">About Me</a>
                         </li>
                     </ul>
+                    <ul class="navbar-nav flex-row flex-wrap me-md-auto">
+                        <li class="nav-item col-6 col-sm-auto">
+                            <a class="navbar-brand nav-link me-1" href="https://github.com/markrissinger/RockPaperCode">
+                                <i class="bi bi-github fa-4x"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item py-2 py-lg-1 col-12 col-sm-auto">
+                            <div class="vr d-none d-lg-flex h-100 mx-lg-2"></div>
+                            <hr class="d-lg-none" />
+                        </li>
+                        <li class="nav-item dropdown me-3">
+                            <a class="navbar-brand nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i id="currentThemeIcon" class=""></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" id="setThemeLight" href="#"><i class="bi bi-brightness-high small"></i>&nbsp Light </a></li>
+                                <li><a class="dropdown-item" id="setThemeDark" href="#"><i class="bi bi-moon-fill small"></i>&nbsp Dark </a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -52,9 +79,5 @@
         <div class="container">
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
