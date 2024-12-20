@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "C# Code Samples";
+}
+@section Scripts
+{
+    <script>
+        // HTML Code Sample JS Code
+        $(document).ready(function () {
+            $("#cSharpSampleDropdown").on("change",
+                function (e) {
+                    var codeSample = $("#cSharpSampleDropdown").val();
+                    $("#cSharpCodeExamplePartialRender").load("/CodeSamples/cSharpCodeSample", { codeSample: codeSample });
+                });
+        });
+    </script>
+}
+
+<div class="row text-center">
+    <h1>C# Code Samples</h1>
+</div>
+
+<br />
+
+<!--Code Sample Selector-->
+<div class="row">
+    <div class="col-3">
+        <select id="cSharpSampleDropdown" class="form-select" aria-label="Default select example">
+            <option value="_PartialCSharpIndex" selected></option>
+            <option value="_PartialGoFSingleton">Singleton</option>
+            <option value="_PartialGoFPrototype">Prototype</option>
+            <option value="_PartialGoFBuilder">Builder</option>
+            <option value="_PartialGoFFactory">Factory</option>
+        </select>
+    </div>
+</div>
+
+<br />
+<hr />
+<br />
+<br />
+
+<!--Partial Render Window-->
+<div class="container-fluid" id="cSharpCodeExamplePartialRender">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>

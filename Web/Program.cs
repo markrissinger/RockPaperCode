@@ -22,9 +22,11 @@ app.UseRouting();
 app.UseAuthorization();
 
 //app.MapRazorPages();
-//app.MapControllers();
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+//app.MapControllers();                                   // Doesn't make any assumptions and will rely on attribute routing
+//app.MapControllerRoute(                                 // Conventional routing (most often used in an MVC application)
+//    name: "default",
+//    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapDefaultControllerRoute();                          // Same as above, but it shorthands the configuration 
 
 app.Run();
